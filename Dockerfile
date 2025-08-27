@@ -27,6 +27,8 @@ COPY --from=builder /usr/local/bin /usr/local/bin
 
 COPY . /app/
 
+RUN mkdir -p /app/logs /app/static
 RUN python manage.py collectstatic --noinput --settings=config.settings.prod
 
+EXPOSE 8000
 CMD ["gunicorn", "config.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3"]
