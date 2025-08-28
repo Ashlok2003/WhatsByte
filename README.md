@@ -1,4 +1,4 @@
-# Whatsbyte Healthcare Backend Assignment
+# Whatsbyte Healthcare Backend
 
 A Django REST API for managing patients, doctors, and their mappings, using Neon Serverless Postgres, JWT authentication, and Swagger docs.
 
