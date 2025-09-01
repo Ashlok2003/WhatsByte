@@ -1,0 +1,2 @@
+# Web Server Gateway Interface (Sync only)
+# Asynchronous Server Gateway Interface

@@ -7,7 +7,7 @@ environ.Env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-SECRET_KEY = env('SECRET_KEY', default='fallback-secret-key-for-dev')
+SECRET_KEY = env('SECRET_KEY', default='ashlokchaudhary')
 
 env_file = BASE_DIR / ".env"
 if env_file.exists():
