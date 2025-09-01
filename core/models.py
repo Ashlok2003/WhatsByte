@@ -1,9 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 
-# -------------------------
-# Custom User Manager
-# -------------------------
 class UserManager(BaseUserManager):
     def create_user(self, email, name, password=None, **extra_fields):
         if not email:
@@ -27,9 +24,6 @@ class UserManager(BaseUserManager):
         return self.create_user(email, name, password, **extra_fields)
 
 
-# -------------------------
-# Custom User Model
-# -------------------------
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     name = models.CharField(max_length=255)
@@ -45,10 +39,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
 
-
-# -------------------------
-# Patient Model
-# -------------------------
 class Patient(models.Model):
     name = models.CharField(max_length=255)
     age = models.PositiveIntegerField()
@@ -64,10 +54,6 @@ class Patient(models.Model):
     def __str__(self):
         return self.name
 
-
-# -------------------------
-# Doctor Model
-# -------------------------
 class Doctor(models.Model):
     name = models.CharField(max_length=255)
     specialty = models.CharField(max_length=255)
@@ -79,10 +65,6 @@ class Doctor(models.Model):
     def __str__(self):
         return self.name
 
-
-# -------------------------
-# Patient-Doctor Mapping Model
-# -------------------------
 class PatientDoctorMapping(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name='doctors')
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='patients')
